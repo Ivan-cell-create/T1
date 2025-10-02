@@ -1,0 +1,336 @@
+import os
+import re
+from collections import Counter
+from datetime import datetime
+import matplotlib.pyplot as plt
+import argparse
+import base64 as b64
+from io import BytesIO
+import textwrap
+
+
+def parse_txt_to_data(file_path):
+    """
+    Читает и парсит один TXT-файл, извлекая все необходимые поля.
+    """
+    data = []
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            
+        entries = re.split(r'-{70,}', content)
+        
+        index_counter = 1
+        
+        for entry in entries:
+            entry = entry.strip()
+            if not entry:
+                continue
+                
+            match_file = re.search(r'FILE: (.+)', entry)
+            match_status = re.search(r'STATUS: (.+)', entry)
+            match_technique = re.search(r'TECHNIQUE: (.+)', entry)
+            match_original = re.search(r'ORIGINAL: (.+)', entry)
+            match_payload = re.search(r'PAYLOAD: (.+)', entry)
+            match_indicators = re.search(r'INDICATORS: (.+)', entry)
+            
+            if match_status and match_technique:
+                status = match_status.group(1).strip()
+                
+                if status == "200":
+                    status_color = "green"
+                elif status in ["403", "500"]:
+                    status_color = "red"
+                elif status.startswith("3"):
+                    status_color = "orange"
+                else:
+                    status_color = "black"
+                    
+                data.append({
+                    "index": index_counter,
+                    "file": match_file.group(1).strip() if match_file else "N/A",
+                    "status": status,
+                    "status_color": status_color,
+                    "technique": match_technique.group(1).strip(),
+                    "original": match_original.group(1).strip() if match_original else "N/A",
+                    "payload": match_payload.group(1).strip() if match_payload else "N/A",
+                    "indicators": match_indicators.group(1).strip() if match_indicators else "N/A",
+                    "response_length": 0 
+                })
+                index_counter += 1
+                
+        return data
+    except Exception as e:
+        print(f"Ошибка при парсинге файла {file_path}: {e}")
+        return []
+
+
+def generate_statistics(results):
+    """Генерирует статистику по запросам."""
+    total_requests = len(results)
+    status_counts = Counter(item['status'] for item in results)
+    technique_counts = Counter(item['technique'] for item in results)
+
+    stats = f"""
+    <div class="statistics">
+        <h2>Общая статистика</h2>
+        <p><strong>Дата и время генерации:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')}</p>
+        <p><strong>Всего запросов:</strong> {total_requests}</p>
+        
+        <h3>Распределение по статусам:</h3>
+        <ul>
+    """
+    for status, count in sorted(status_counts.items(), key=lambda item: item[1], reverse=True):
+        color = "green" if status == "200" else "red" if status in ["403", "500"] else "orange" if status.startswith("3") else "black"
+        stats += f'<li><span style="color: {color}">HTTP {status}</span>: {count} ({(count/total_requests)*100:.1f}%)</li>'
+    stats += """
+        </ul>
+        <h3>Распределение по техникам обфускации:</h3>
+        <ul>
+    """
+    for technique, count in sorted(technique_counts.items(), key=lambda item: item[1], reverse=True):
+        stats += f'<li>{technique}: {count} ({(count/total_requests)*100:.1f}%)</li>'
+    stats += """
+        </ul>
+    </div>
+    """
+    return stats, technique_counts
+
+def generate_chart(technique_counts):
+    """Создаёт круговую диаграмму техник и возвращает ее как base64-строку."""
+    if not technique_counts:
+        return None
+    
+    labels = technique_counts.keys()
+    sizes = technique_counts.values()
+    
+    plt.figure(figsize=(10, 8))
+    
+    def absolute_value(val):
+        a = sum(sizes)
+        return f'{(val/a)*100:.1f}%\n({int(round(val))})'
+        
+    plt.pie(sizes, labels=labels, autopct=absolute_value, startangle=140, 
+            textprops={'fontsize': 10, 'color': 'black'}, wedgeprops={'edgecolor': 'white'})
+            
+    plt.title("Распределение использованных техник обфускации", pad=20)
+    plt.axis('equal') 
+    plt.tight_layout()
+    
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png', bbox_inches='tight')
+    plt.close()
+    buffer.seek(0)
+    img_base64 = b64.b64encode(buffer.getvalue()).decode('utf-8')
+    return img_base64
+
+def generate_html(results, stats_html, chart_base64):
+    """Генерирует финальную HTML-страницу."""
+    
+    # Константа для обрезки длинных строк
+    MAX_PAYLOAD_LEN = 100
+    
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Финальный Отчёт по Анализу Атак Burp Suite</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Arial, sans-serif;
+                margin: 40px;
+                background-color: #f5f6fa;
+                color: #333;
+                overflow-x: auto;
+            }
+            h1 { text-align: center; color: #2c3e50; font-size: 2.5em; margin-bottom: 20px; }
+            h2 { color: #34495e; font-size: 1.8em; margin-top: 30px; }
+            .statistics { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin: 20px 0; }
+            .statistics ul { list-style: none; padding: 0; }
+            .statistics li { margin: 10px 0; font-size: 1.1em; }
+            img { display: block; margin: 30px auto; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+            
+            /* Стили для таблицы */
+            .table-wrapper {
+                width: 100%;
+                overflow: auto; 
+                max-height: 70vh; 
+                margin-top: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+
+            table {
+                width: 100%;
+                min-width: 1600px; 
+                border-collapse: collapse;
+                background-color: #fff;
+            }
+            
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #e0e0e0;
+                word-wrap: break-word;
+                max-width: 150px; 
+                white-space: nowrap; 
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            th {
+                background-color: #3498db;
+                color: white;
+                font-weight: 600;
+                position: sticky; 
+                top: 0;
+                z-index: 2;
+            }
+            tr:nth-child(even) { background-color: #f8f9fb; }
+            tr:hover { background-color: #e8ecef; transition: background-color 0.2s; }
+            
+            /* Стили для Tooltip */
+            .tooltip {
+                position: relative;
+                display: block;
+                cursor: help; 
+                height: 100%;
+            }
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 600px; /* Шире для пейлоадов */
+                background-color: #555;
+                color: #fff;
+                text-align: left;
+                border-radius: 6px;
+                padding: 10px;
+                position: absolute;
+                z-index: 10;
+                top: 120%; 
+                left: 0;
+                opacity: 0;
+                transition: opacity 0.3s;
+                white-space: pre-wrap; 
+                word-break: break-word;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Финальный Сводный Отчёт по Анализу Атак Burp Suite</h1>
+        <p style="text-align: center; font-style: italic;">Данные агрегированы из всех предоставленных TXT-отчетов.</p>
+    """
+    
+    html_content += stats_html
+    
+    if chart_base64:
+        html_content += f"""
+        <h2>Распределение Техник Обфускации (График)</h2>
+        <div style="overflow-x: auto; margin-top: 20px; padding: 10px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); text-align: center;">
+            <img src="data:image/png;base64,{chart_base64}" alt="Obfuscation Techniques Pie Chart" style="width: 100%; max-width: 800px; display: inline-block;">
+        </div>
+        """
+        
+    html_content += """
+        <h2>Детализация Запросов (Сырые и Декодированные Пейлоады)</h2>
+        <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>#</th>
+                <th style="min-width: 150px;">File</th>
+                <th>Status</th>
+                <th style="min-width: 180px;">Technique</th>
+                <th style="min-width: 400px;">Original (Сырой)</th>
+                <th style="min-width: 400px;">Payload (Декодированный)</th>
+                <th style="min-width: 300px;">Indicators</th>
+            </tr>
+    """
+    for item in results:
+        original_full = item['original']
+        payload_full = item['payload']
+        indicators_full = item['indicators']
+
+        original_short = original_full[:MAX_PAYLOAD_LEN] + ('...' if len(original_full) > MAX_PAYLOAD_LEN else '')
+        payload_short = payload_full[:MAX_PAYLOAD_LEN] + ('...' if len(payload_full) > MAX_PAYLOAD_LEN else '')
+        
+        indicators_short = textwrap.shorten(indicators_full, width=30, placeholder='...')
+
+        html_content += f"""
+            <tr>
+                <td>{item['index']}</td>
+                <td style="word-break: break-all;">{item['file']}</td>
+                <td style="color: {item['status_color']}">{item['status']}</td>
+                <td>{item['technique']}</td>
+                <td>
+                    <div class="tooltip">{original_short}
+                        <span class="tooltiptext">{original_full}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">{payload_short}
+                        <span class="tooltiptext">{payload_full}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip">{indicators_short}
+                        <span class="tooltiptext">{indicators_full}</span>
+                    </div>
+                </td>
+            </tr>
+        """
+    
+    html_content += """
+        </table>
+        </div>
+    """
+    
+    html_content += """
+    </body>
+    </html>
+    """
+    
+    return html_content
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Генерация HTML-отчета на основе TXT-выгрузок Burp Suite.")
+    parser.add_argument("input_path", help="Путь к TXT-файлу или папке с TXT-файлами")
+    args = parser.parse_args()
+    
+    input_path = args.input_path
+    output_filename = "burp_final_report.html"
+    
+    all_results = []
+
+    if os.path.isfile(input_path) and input_path.lower().endswith('.txt'):
+        all_results.extend(parse_txt_to_data(input_path))
+    elif os.path.isdir(input_path):
+        for file_name in os.listdir(input_path):
+            file_path = os.path.join(input_path, file_name)
+            if os.path.isfile(file_path) and file_name.lower().endswith('.txt'):
+                all_results.extend(parse_txt_to_data(file_path))
+    else:
+        print(f"Ошибка: Путь '{input_path}' не является TXT-файлом или папкой с TXT-файлами.")
+        return
+
+    if not all_results:
+        print("Не найдено данных для обработки.")
+        return
+
+    stats_html, technique_counts = generate_statistics(all_results)
+    chart_base64 = generate_chart(technique_counts)
+
+    html_content = generate_html(all_results, stats_html, chart_base64)
+    with open(output_filename, "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+    print(f"\n✅ Обработка завершена. Финальный, красивый HTML-отчёт сохранён как: {output_filename}")
+
+if __name__ == "__main__":
+    main()
