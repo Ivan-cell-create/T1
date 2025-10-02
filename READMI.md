@@ -101,9 +101,10 @@ python parser.py burp_reports/xss_fuzz.txt
 
     БЛОКИРОВКА (403/500, красный): Количество контрольных пейлоадов, заблокированных WAF.
 
-    https://vscode.dev/github/Ivan-cell-create/T1/blob/main/images/image1.jpg
+![Статистика](./images/image1.jpg)
 
-    images/image2.jpg
+![Диаграмма](./images/image2.jpg)
+
 
 2. **Детализация запросов**
 
@@ -117,7 +118,7 @@ python parser.py burp_reports/xss_fuzz.txt
 | Светло‑красный (`.test-row-block`) | `403` или `500` (Ярко‑красный) | **УСПЕШНАЯ БЛОКИРОВКА** |
 | Без выделения                      | Прочие                         | Неконтрольный пейлоад   |
 
-images/image3.jpg
+![Таблица](./images/image3.png)
 
 ## Контакты
 
